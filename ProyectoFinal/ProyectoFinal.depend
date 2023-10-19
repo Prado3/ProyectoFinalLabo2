@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1697585550 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\celdacuentas.c
+
+1697726731 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cliente.c
+	"cliente.h"
+
+1697723906 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cliente.h
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<time.h>
+
+1697726824 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.c
+	"cuenta.h"
+
+1697728199 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	"cuenta.h"
+	"movimiento.h"
+
+1697727281 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
+	"movimiento.h"
+
+1697585491 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
+
+1697585612 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.c
+
+1697728098 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
+	"cliente.h"
+
+1697728199 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.h
+	"cliente.h"
+
+1697727325 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.h
+	"cuenta.h"
+
+1697728098 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\random.c
+	"cliente.h"
+	"cuenta.h"
+	"movimiento.h"
+
