@@ -13,7 +13,7 @@ typedef struct{
     int eliminado;
 }stMovimiento;
 
-stMovimiento cargarMovimientoRandom(stCuenta cuenta);
+stMovimiento cargarMovimientoRandom(stCuenta cuenta,int movId);
 stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float importe);
 void mostrarMovimiento(stMovimiento movimiento);
 

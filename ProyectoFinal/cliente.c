@@ -1,15 +1,23 @@
 #include "cliente.h"
-
-int idautoincremental(){
+stCliente cargarClienteRandom(int clienteId, int nroCliente,int num){
     stCliente cliente;
+    getName(cliente.nombre,num);
+    getLastname(cliente.apellido,num);
+    getDni(cliente.dni,num);
+    getEmail(cliente.email,num);
+    getDomicilio(cliente.domicilio,num);
+    getTelefono(cliente.telefono,num);
+    cliente.eliminado=0;
+    cliente.id=idautoincremental(clienteId);
+    cliente.nroCliente=nroClienteA(nroCliente);
+
+    return cliente;
+}
+
+int idautoincremental(int clienteId){
     int id=idAuto();
-    FILE *archi = fopen(ARCHI_CLIENTE, "rb");
-    if(archi){
-        fseek(archi, sizeof(stCliente)*(-1),SEEK_END);
-        if(fread(&cliente ,sizeof(stCliente),1,archi) > 0){
-            id = cliente.id;
-        }
-        fclose(archi);
+    if(clienteId > 0){
+        id = clienteId;
     }
 return id+1;
 }
@@ -19,40 +27,10 @@ int idAuto(){
     return i;
 }
 
-stCliente cargaClienteRandom(){
-    int num=0;
-    srand(time(NULL));
-    stCliente cliente;
-
-    num=rand()%20;
-    getName(cliente.nombre,num);
-    num=rand()%20;
-    getLastname(cliente.apellido,num);
-    num=rand()%20;
-    getDni(cliente.dni,num);
-    num=rand()%20;
-    getEmail(cliente.email,num);
-    num=rand()%20;
-    getDomicilio(cliente.domicilio,num);
-    num=rand()%20;
-    getTelefono(cliente.telefono,num);
-    cliente.eliminado=0;
-    cliente.id=idautoincremental();
-    cliente.nroCliente=nroClienteA();
-
-    return cliente;
-}
-
-int nroClienteA(){
-    stCliente cliente;
+int nroClienteA(int nroCliente){
     int id=nroClienteB();
-    FILE *archi = fopen(ARCHI_CLIENTE, "rb");
-    if(archi){
-        fseek(archi, sizeof(stCliente)*(-1),SEEK_END);
-        if(fread(&cliente ,sizeof(stCliente),1,archi) > 0){
-            id = cliente.nroCliente;
-        }
-        fclose(archi);
+    if(nroCliente > 0){
+        id = nroCliente;
     }
 return id+10;
 }
@@ -77,7 +55,7 @@ void mostrarCliente(stCliente cliente){
 stCliente cargarCliente(){
     stCliente cliente;
 
-    cliente.id=idautoincremental();
+    //cliente.id=idautoincremental();
 
     printf("\n Ingrese su nombre: ");
     fflush(stdin);
@@ -105,7 +83,7 @@ stCliente cargarCliente(){
 
     cliente.eliminado=0;
 
-    cliente.nroCliente=nroClienteA();
+//    cliente.nroCliente=nroClienteA();
 
     return cliente;
 }

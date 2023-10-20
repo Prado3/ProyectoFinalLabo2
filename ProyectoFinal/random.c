@@ -7,23 +7,35 @@ void cargarRandom(){
     stCliente cliente;
     stCuenta cuenta;
     stMovimiento movimiento;
+    srand(time(NULL));
+    int num=0;
     FILE* archi = fopen(ARCHI_CLIENTE,"a+b");
     FILE* archiCuenta = fopen(ARCHI_CUENTA,"a+b");
     FILE* archiMov = fopen(ARCHI_MOVIMIENTOS,"a+b");
     if(archi){
         if(archiCuenta){
             if(archiMov){
+                cliente.id=0;
+                cliente.nroCliente=0;
+                cuenta.id=0;
+                cuenta.nroCuenta=0;
+                movimiento.id=0;
                 for(int i =0;i<50;i++){
-                    cliente = cargaClienteRandom();
+                    num = generarNumRand();
+                    cliente = cargarClienteRandom(cliente.id,cliente.nroCliente,num);
                     fwrite(&cliente,sizeof(stCliente),1,archi);
+                    cuenta.id=cliente.id;
                         for(int j = 0;j<3;j++){
-                            cuenta = cargarCuentaRandom(cliente,j+1);
+                            cuenta = cargarCuentaRandom(cliente,j+1,cuenta.id,cuenta.nroCuenta);
                             fwrite(&cuenta,sizeof(stCuenta),1,archiCuenta);
-                                for(int z=0;z<30;z++){
-                                    movimiento = cargarMovimientoRandom(cuenta);
+                            movimiento.id=cuenta.id;
+                                for(int z=0;z<10;z++){
+                                    movimiento = cargarMovimientoRandom(cuenta,movimiento.id);
                                     fwrite(&movimiento,sizeof(stMovimiento),1,archiMov);
                                 }
+                                cuenta.id=movimiento.id;
                         }
+                        cliente.id=cuenta.id;
                 }
                 fclose(archiMov);
             }
@@ -33,7 +45,11 @@ void cargarRandom(){
     }
 }
 
-
+int generarNumRand(){
+    int i = 0;
+    i=rand()%20;
+    return i;
+}
 
 void getName(char n[],int numRan){
     char names[][20]={"Amalio","Juan","Roberto","Antonio","Pedro","Fernando","Jacinto","Anibal","Antonio","Atalayo",

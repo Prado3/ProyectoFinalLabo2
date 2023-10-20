@@ -1,8 +1,7 @@
 #include "movimiento.h"
 
-stMovimiento cargarMovimientoRandom(stCuenta cuenta){
+stMovimiento cargarMovimientoRandom(stCuenta cuenta,int movId){
     stMovimiento movimiento;
-    srand(time(NULL));
     char detalle[][20]={"cobro haberes","regalo","venta celular","venta anillo","venta ropa","venta auto","venta app"};
 
     movimiento.importe=rand()%1000+1;
@@ -11,8 +10,10 @@ stMovimiento cargarMovimientoRandom(stCuenta cuenta){
     movimiento.mes=rand()%12+1;
     strcpy(movimiento.detalle,detalle[rand()%7]);
     movimiento.eliminado=0;
-    movimiento.id=idautoincremental();
+    movimiento.id=idautoincremental(movId);
     movimiento.idCuenta=cuenta.nroCuenta;
+
+    return movimiento;
 }
 
 stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float importe){

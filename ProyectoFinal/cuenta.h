@@ -11,7 +11,7 @@ typedef struct {
     int eliminado;
 }stCuenta;
 
-stCuenta cargarCuentaRandom(stCliente cliente, int i);
+stCuenta cargarCuentaRandom(stCliente cliente, int i,int cuentaId,int nroCuenta);
 int nroCuentaA();
 int nroCuentaB();
 stCuenta cargarCuenta(int id, int nroCliente, int opcion);

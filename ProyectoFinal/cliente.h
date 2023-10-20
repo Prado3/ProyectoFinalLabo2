@@ -30,7 +30,7 @@ int mostrarOpciones();
 // FUNCIONES DE CLIENTE.C
 int idautoincremental();
 int idAuto();
-stCliente cargaClienteRandom();
+stCliente cargarClienteRandom(int clienteId, int nroCliente,int num);
 void mostrarCliente(stCliente cliente);
 stCliente cargarCliente();
 #endif // CLIENTE_H_INCLUDED

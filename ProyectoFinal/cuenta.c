@@ -1,6 +1,6 @@
 #include "cuenta.h"
 
-stCuenta cargarCuentaRandom(stCliente cliente, int i){
+stCuenta cargarCuentaRandom(stCliente cliente, int i,int cuentaId,int nroCuenta){
     stCuenta cuenta;
     int costMen=0;
     if(i==1){
@@ -12,9 +12,9 @@ stCuenta cargarCuentaRandom(stCliente cliente, int i){
             costMen=1500;
         }
     }
-    cuenta.id=idautoincremental();
+    cuenta.id=idautoincremental(cuentaId);
     cuenta.idCliente=cliente.nroCliente;
-    cuenta.nroCuenta=nroCuentaA();
+    cuenta.nroCuenta=nroCuentaA(nroCuenta);
     cuenta.eliminado=0;
     cuenta.costoMensual=costMen;
     cuenta.tipoCuenta=i;
@@ -22,22 +22,16 @@ stCuenta cargarCuentaRandom(stCliente cliente, int i){
     return cuenta;
 }
 
-int nroCuentaA(){
-    stCuenta cuenta;
+int nroCuentaA(int nroCuenta){
     int id=nroCuentaB();
-    FILE *archi = fopen(ARCHI_CUENTA, "rb");
-    if(archi){
-        fseek(archi, sizeof(stCuenta)*(-1),SEEK_END);
-        if(fread(&cuenta ,sizeof(stCuenta),1,archi) > 0){
-            id = cuenta.nroCuenta;
-        }
-        fclose(archi);
+    if(nroCuenta > 0){
+        id = nroCuenta;
     }
 return id+2;
 }
 
 int nroCuentaB(){
-    static int i = 100000;
+    static int i = 200000;
     return i;
 }
 
@@ -48,7 +42,7 @@ stCuenta cargarCuenta(int id, int nroCliente, int opcion){
 
     cuenta.idCliente=nroCliente;
 
-    cuenta.nroCuenta=nroCuentaA();
+//    cuenta.nroCuenta=nroCuentaA();
 
     cuenta.tipoCuenta=opcion;
 
