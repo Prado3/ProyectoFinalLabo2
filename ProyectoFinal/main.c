@@ -5,6 +5,10 @@
 #include "movimiento.h"
 
 void mostrarArchivos(int op);
+int pasarArchi2Arreglo(stCliente clienteA[],char nombreArchi[],int dim);
+int posicionMenor (stCliente cliente[], int pos, int validos);
+void ordenacionSeleccion (stCliente cliente[], int validos);
+void MuestraArreglo (stCliente clienteA[], int validos);
 
 int main()
 {
@@ -46,6 +50,59 @@ void mostrarArchivos(int op){
     }
 }
 
+int pasarArchi2Arreglo(stCliente clienteA[],char nombreArchi[],int dim){
+    stCliente cliente;
+    int v=0;
+    FILE* archi = fopen(nombreArchi,"rb");
+    if(archi){
+        while(v<dim && fread(&cliente,sizeof(stCliente),1,archi)>0){
+            clienteA[v]= cliente;
+            v++;
+        }
+        fclose(archi);
+    }
+    return v;
+}
+
+int posicionMenor (stCliente cliente[], int pos, int validos)
+{
+    stCliente menor = cliente[pos];
+    int posmenor = pos;
+    int i = pos +1;
+    while (i<validos)
+    {
+        if (atoi (menor.dni) > atoi (cliente[i].dni))
+        {
+            menor = cliente[i];
+            posmenor = i;
+        }
+        i++;
+    }
+    return posmenor;
+}
+
+void ordenacionSeleccion (stCliente cliente[], int validos)
+{
+    int posmenor;
+    stCliente aux;
+    int i = 0;
+    while (i<validos-1)
+    {
+        posmenor = posicionMenor(cliente,i,validos);
+        aux = cliente[posmenor];
+        cliente[posmenor]=cliente[i];
+        cliente[i]= aux;
+        i++;
+    }
+}
+
+void MuestraArreglo (stCliente clienteA[], int validos){
+    stCliente cliente;
+for (int i=0; i<validos; i++){
+    mostrarCliente(cliente);
+}
+
+}
 
 
 

@@ -1,16 +1,23 @@
 #include "cliente.h"
+#define DIM 60
 
 void menuGeneral(){
     char opSalir;
     int opcion=0;
-
+    stCliente cliente[DIM];
+    int v=0;
 
     do{
         system("cls");
         opcion=mostrarOpciones();
         switch(opcion){
         case 1:
-            cargarRandom();
+            //cargarRandom();
+            v=pasarArchi2Arreglo(cliente,ARCHI_CLIENTE,DIM);
+            //ordenacionSeleccion(cliente,v);
+            MuestraArreglo(cliente,v);
+            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para consultar otro archivo...");
+            opSalir=getch();
             break;
         case 2:
             system("cls");

@@ -1,9 +1,9 @@
 #include "cliente.h"
-stCliente cargarClienteRandom(int clienteId, int nroCliente,int num){
+stCliente cargarClienteRandom(int clienteId, int nroCliente,int num, int numDni){
     stCliente cliente;
     getName(cliente.nombre,num);
     getLastname(cliente.apellido,num);
-    getDni(cliente.dni,num);
+    getDni(cliente.dni,numDni);
     getEmail(cliente.email,num);
     getDomicilio(cliente.domicilio,num);
     getTelefono(cliente.telefono,num);
