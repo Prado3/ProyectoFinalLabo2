@@ -4,7 +4,7 @@
 
 typedef struct{
     int id;
-    int idCuenta;
+    int nroCuenta;
     int anio;
     int mes;
     int dia;

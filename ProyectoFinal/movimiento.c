@@ -1,4 +1,5 @@
 #include "movimiento.h"
+#include "cuenta.h"
 
 stMovimiento cargarMovimientoRandom(stCuenta cuenta,int movId){
     stMovimiento movimiento;
@@ -11,7 +12,7 @@ stMovimiento cargarMovimientoRandom(stCuenta cuenta,int movId){
     strcpy(movimiento.detalle,detalle[rand()%7]);
     movimiento.eliminado=0;
     movimiento.id=idautoincremental(movId);
-    movimiento.idCuenta=cuenta.nroCuenta;
+    movimiento.nroCuenta=cuenta.nroCuenta;
 
     return movimiento;
 }
@@ -25,7 +26,7 @@ stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float im
 
     movimiento.id=id;
 
-    movimiento.idCuenta=idCuenta;
+    movimiento.nroCuenta=idCuenta;
 
     movimiento.anio=fecha->tm_year+1900;
 
@@ -46,7 +47,7 @@ stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float im
 void mostrarMovimiento(stMovimiento movimiento){
     printf("\n ==============================");
     printf("\n id:...................%d",movimiento.id);
-    printf("\n idCuenta:.............%d",movimiento.idCuenta);
+    printf("\n idCuenta:.............%d",movimiento.nroCuenta);
     printf("\n Anio:.................%d",movimiento.anio);
     printf("\n Mes:..................%d",movimiento.mes);
     printf("\n Dia:..................%d",movimiento.dia);

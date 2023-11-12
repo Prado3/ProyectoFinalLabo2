@@ -1,10 +1,10 @@
 #ifndef CLIENTE_H_INCLUDED
 #define CLIENTE_H_INCLUDED
-#include <stdio.h>
-#include <stdlib.h>
 #include <conio.h>
 #include <string.h>
 #include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define ESC 27
 #define ARCHI_CLIENTE "cliente.dat"
 #define ARCHI_CUENTA "cuenta.dat"
@@ -26,6 +26,11 @@ typedef struct {
 // FUNCIONES DE MENU.C
 void menuGeneral();
 int mostrarOpciones();
+void color(int x);
+void gotoxy(int X,int Y);
+int whereX();
+int whereY();
+void hidecursor(int ver);
 
 // FUNCIONES DE CLIENTE.C
 int idautoincremental();

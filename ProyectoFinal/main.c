@@ -1,14 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "cliente.h"
 #include "cuenta.h"
 #include "movimiento.h"
+#include "nodoArbolCliente.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void mostrarArchivos(int op);
 int pasarArchi2Arreglo(stCliente clienteA[],char nombreArchi[],int dim);
 int posicionMenor (stCliente cliente[], int pos, int validos);
 void ordenacionSeleccion (stCliente cliente[], int validos);
 void MuestraArreglo (stCliente clienteA[], int validos);
+void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol);
 
 int main()
 {
@@ -98,10 +100,20 @@ void ordenacionSeleccion (stCliente cliente[], int validos)
 
 void MuestraArreglo (stCliente clienteA[], int validos){
     stCliente cliente;
-for (int i=0; i<validos; i++){
-    mostrarCliente(cliente);
+    for (int i=0; i<validos; i++){
+        mostrarCliente(clienteA[i]);
+    }
 }
 
+void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol){
+    stMovimiento mov;
+    FILE* archi = fopen(nombreArchi,"rb");
+    if(archi){
+        while(fread(&mov,sizeof(stMovimiento),1,archi)>0){
+            arbol = cargarLista(mov,arbol);
+            printf("\n hola");
+        }
+    }
 }
 
 

@@ -1,11 +1,15 @@
 #include "cliente.h"
-#define DIM 60
+#include "nodoArbolCliente.h"
+#define DIM 50
+#include <stdio.h>
+#include <stdlib.h>
 
 void menuGeneral(){
     char opSalir;
     int opcion=0;
-    stCliente cliente[DIM];
+    stCliente clienteArreglo[DIM];
     int v=0;
+    nodoArbolCliente* arbol=inicArbol();
 
     do{
         system("cls");
@@ -13,9 +17,11 @@ void menuGeneral(){
         switch(opcion){
         case 1:
             //cargarRandom();
-            v=pasarArchi2Arreglo(cliente,ARCHI_CLIENTE,DIM);
-            //ordenacionSeleccion(cliente,v);
-            MuestraArreglo(cliente,v);
+            v=pasarArchi2Arreglo(clienteArreglo,ARCHI_CLIENTE,DIM);
+            ordenacionSeleccion(clienteArreglo,v);
+            arbol = Arreglo2Arbol(clienteArreglo,0,49,arbol);
+            arbol = cargarAdlCuentas(arbol,ARCHI_CUENTA);
+            //cargarLista2adl(ARCHI_MOVIMIENTOS,arbol);
             printf("\n Ingrese ESC para volver al menu, o cualquier tecla para consultar otro archivo...");
             opSalir=getch();
             break;
@@ -46,3 +52,4 @@ int mostrarOpciones(){
     scanf("%d",&i);
     return i;
 }
+

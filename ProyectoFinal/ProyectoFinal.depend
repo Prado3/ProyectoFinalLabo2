@@ -1,44 +1,66 @@
 # depslib dependency file v1.0
-1697585550 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\celdacuentas.c
+1699482064 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\celdacuentas.c
+	"celdaCuentas.h"
+	"cliente.h"
 
 1698002314 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cliente.c
 	"cliente.h"
 
-1698002314 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cliente.h
-	<stdio.h>
-	<stdlib.h>
+1699402995 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cliente.h
 	<conio.h>
 	<string.h>
 	<time.h>
+	<stdio.h>
+	<stdlib.h>
 
 1697810941 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.c
 	"cuenta.h"
 
-1698007184 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
-	<stdio.h>
-	<stdlib.h>
+1699480011 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
 	"cliente.h"
 	"cuenta.h"
 	"movimiento.h"
+	"nodoArbolCliente.h"
+	<stdio.h>
+	<stdlib.h>
 
-1697813004 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
+1699394960 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
 	"movimiento.h"
+	"cuenta.h"
 
-1697585491 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
-
-1697585612 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.c
-
-1698007426 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
+1699482015 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
+	"nodoArbolCliente.h"
+	"math.h"
 	"cliente.h"
+	"celdaCuentas.h"
+
+1699401077 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.c
+	"nodoListaMovimiento.h"
+
+1699480847 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
+	"cliente.h"
+	"nodoArbolCliente.h"
+	<stdio.h>
+	<stdlib.h>
 
 1697810951 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.h
 	"cliente.h"
 
-1697811320 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.h
+1698194079 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.h
 	"cuenta.h"
 
 1698002314 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\random.c
 	"cliente.h"
 	"cuenta.h"
+	"movimiento.h"
+
+1699478854 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.h
+	"cliente.h"
+	"celdaCuentas.h"
+
+1699394699 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\celdacuentas.h
+	"nodoListaMovimiento.h"
+
+1699401077 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.h
 	"movimiento.h"
 
