@@ -11,6 +11,7 @@ int posicionMenor (stCliente cliente[], int pos, int validos);
 void ordenacionSeleccion (stCliente cliente[], int validos);
 void MuestraArreglo (stCliente clienteA[], int validos);
 void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol);
+void mostrarEstructuraCompleta(nodoArbolCliente* arbol);
 
 int main()
 {
@@ -111,8 +112,21 @@ void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol){
     if(archi){
         while(fread(&mov,sizeof(stMovimiento),1,archi)>0){
             arbol = cargarLista(mov,arbol);
-            printf("\n hola");
         }
+    }
+}
+
+void mostrarEstructuraCompleta(nodoArbolCliente* arbol){
+    if(arbol){
+        mostrarCliente(arbol->dato);
+        for(int i=0;i<3;i++){
+            mostrarCuenta(arbol->arregloCuenta[i].dato);
+            for(int j=0;j<10;j++){
+                mostrarMovimiento(arbol->arregloCuenta[i].nodoLista->dato);
+            }
+        }
+        mostrarEstructuraCompleta(arbol->izq);
+        mostrarEstructuraCompleta(arbol->der);
     }
 }
 

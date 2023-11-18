@@ -21,6 +21,8 @@ void menuGeneral(){
             ordenacionSeleccion(clienteArreglo,v);
             arbol = Arreglo2Arbol(clienteArreglo,0,49,arbol);
             arbol = cargarAdlCuentas(arbol,ARCHI_CUENTA);
+            cargarLista2adl(ARCHI_MOVIMIENTOS,arbol);
+            mostrarEstructuraCompleta(arbol);
             //cargarLista2adl(ARCHI_MOVIMIENTOS,arbol);
             printf("\n Ingrese ESC para volver al menu, o cualquier tecla para consultar otro archivo...");
             opSalir=getch();

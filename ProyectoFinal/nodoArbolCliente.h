@@ -25,4 +25,6 @@ void postorder(nodoArbolCliente* arbol);
 nodoArbolCliente* buscar(nodoArbolCliente* arbol,int edad);
 nodoArbolCliente* buscarIdClienteArbol(nodoArbolCliente* arbol,int idCliente);
 nodoArbolCliente* cargarAdlCuentas(nodoArbolCliente* arbol, char nombreArchivo[]);
+nodoArbolCliente* cargarLista(stMovimiento mov, nodoArbolCliente* arbol);
+void buscarCuenta(nodoArbolCliente* arbol,stMovimiento mov,int flag);
 #endif // NODOARBOLCLIENTE_H_INCLUDED

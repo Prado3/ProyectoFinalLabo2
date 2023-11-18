@@ -70,7 +70,6 @@ void postorder(nodoArbolCliente* arbol){
 nodoArbolCliente* buscarIdClienteArbol(nodoArbolCliente* arbol,int idCliente){
     nodoArbolCliente* rta = NULL;
     if(arbol){
-        mostrarCliente(arbol->dato);
         if(arbol->dato.nroCliente==idCliente){
             rta = arbol;
         }else{

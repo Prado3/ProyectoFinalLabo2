@@ -56,7 +56,7 @@ stCuenta cargarCuenta(int id, int nroCliente, int opcion){
 void mostrarCuenta(stCuenta cuenta){
     printf("\n ====================");
     printf("\n id:............ %d",cuenta.id);
-    printf("\n idCuenta:...... %d",cuenta.idCliente);
+    printf("\n idCliente:...... %d",cuenta.idCliente);
     printf("\n NroCuenta:..... %d",cuenta.nroCuenta);
     printf("\n Tipo de Cuenta: %d",cuenta.tipoCuenta);
     printf("\n Costo mensual:. %.2f",cuenta.costoMensual);
