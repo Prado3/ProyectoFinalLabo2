@@ -129,7 +129,6 @@ nodoArbolCliente* buscarDniClienteArbol(nodoArbolCliente* arbol,char DniCliente[
     if(arbol){
         if(atoi(arbol->dato.dni)==atoi(DniCliente)){
             rta = arbol;
-            printf("\n hola");
         }else{
             rta = buscarDniClienteArbol(arbol->izq,DniCliente);
             if(!rta){

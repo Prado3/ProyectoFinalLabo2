@@ -48,6 +48,14 @@ void menuGeneral(){
         case 4:
 
             break;
+        case 5:
+            fflush(stdin);
+            printf("\n Ingrese el dni a mostrar");
+            gets(dni);
+            muestraCuentaCliente(arbol,dni);
+            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para suspender otro cliente...");
+            opSalir=getch();
+            break;
         }
         printf("\n Ingrese ESC para salir del programa");
         printf("\n Ingrese ENTER para volver al menu");
@@ -62,6 +70,7 @@ int mostrarOpciones(){
     printf("\n 2 = Mostrar Archivos");
     printf("\n 3 = Suspender Cliente");
     printf("\n 3 = Eliminar Cliente");
+    printf("\n 3 = Mostrar Cliente");
     printf("\n ==========================================");
     printf("\n Ingrese la opcion a elegir: ");
     scanf("%d",&i);

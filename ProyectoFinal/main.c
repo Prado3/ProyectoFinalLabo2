@@ -13,6 +13,7 @@ void MuestraArreglo (stCliente clienteA[], int validos);
 void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol);
 void mostrarEstructuraCompleta(nodoArbolCliente* arbol);
 void mostrarUnCliente(nodoArbolCliente* arbol);
+void muestraCuentaCliente (nodoArbolCliente * arbol, char DniCliente[]);
 
 int main()
 {
@@ -154,6 +155,37 @@ void mostrarUnCliente(nodoArbolCliente* arbol){
         mostrarCuenta(arbol->arregloCuenta[1].dato);
         mostrarLista(arbol->arregloCuenta[1].nodoLista);
     }
+}
+
+void muestraCuentaCliente (nodoArbolCliente * arbol, char DniCliente[]){
+int cuenta=0;
+nodoArbolCliente*aux=buscarDniClienteArbol(arbol,DniCliente);
+if (aux==NULL){
+    printf("\n El DNI ingresado no se encuentra en la base de datos");
+}
+else{
+    printf("\n Ingrese que cuenta desea visualizar, 1 Caja de ahorro, 2 Cuenta Corriente, 3 Cuenta en dolares: ");
+    scanf("%d",cuenta);
+    if (cuenta==1){
+        mostrarCuenta(aux->arregloCuenta[0].dato);
+        mostrarLista(aux->arregloCuenta[0].nodoLista);
+
+
+    }
+    else if (cuenta==2){
+        mostrarCuenta(aux->arregloCuenta[1].dato);
+        mostrarLista(aux->arregloCuenta[1].nodoLista);
+
+    }
+    else if (cuenta==3){
+        mostrarCuenta(aux->arregloCuenta[2].dato);
+        mostrarLista(aux->arregloCuenta[2].nodoLista);
+
+    }
+
+}
+
+
 }
 
 
