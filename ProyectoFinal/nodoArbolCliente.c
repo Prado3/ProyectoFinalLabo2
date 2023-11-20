@@ -124,3 +124,19 @@ nodoArbolCliente* cargarLista(stMovimiento mov, nodoArbolCliente* arbol){
     return arbol;
 }
 
+nodoArbolCliente* buscarDniClienteArbol(nodoArbolCliente* arbol,char DniCliente[]){
+    nodoArbolCliente* rta = NULL;
+    if(arbol){
+        if(atoi(arbol->dato.dni)==atoi(DniCliente)){
+            rta = arbol;
+            printf("\n hola");
+        }else{
+            rta = buscarDniClienteArbol(arbol->izq,DniCliente);
+            if(!rta){
+                rta = buscarDniClienteArbol(arbol->der,DniCliente);
+            }
+        }
+    }
+    return rta;
+}
+

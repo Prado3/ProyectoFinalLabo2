@@ -10,6 +10,7 @@ void menuGeneral(){
     stCliente clienteArreglo[DIM];
     int v=0;
     nodoArbolCliente* arbol=inicArbol();
+    char dni[10];
 
     do{
         system("cls");
@@ -23,7 +24,6 @@ void menuGeneral(){
             arbol = cargarAdlCuentas(arbol,ARCHI_CUENTA);
             cargarLista2adl(ARCHI_MOVIMIENTOS,arbol);
             mostrarEstructuraCompleta(arbol);
-            //cargarLista2adl(ARCHI_MOVIMIENTOS,arbol);
             printf("\n Ingrese ESC para volver al menu, o cualquier tecla para consultar otro archivo...");
             opSalir=getch();
             break;
@@ -37,6 +37,17 @@ void menuGeneral(){
             printf("\n Ingrese ESC para volver al menu, o cualquier tecla para consultar otro archivo...");
             opSalir=getch();
             break;
+        case 3:
+            fflush(stdin);
+            printf("\n Ingrese el dni a suspender");
+            gets(dni);
+            suspenderCliente(dni,arbol);
+            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para suspender otro cliente...");
+            opSalir=getch();
+            break;
+        case 4:
+
+            break;
         }
         printf("\n Ingrese ESC para salir del programa");
         printf("\n Ingrese ENTER para volver al menu");
@@ -49,6 +60,8 @@ int mostrarOpciones(){
     printf("\n ==========================================");
     printf("\n 1 = CARGAR ARCHIVOS(WARNING!!)");
     printf("\n 2 = Mostrar Archivos");
+    printf("\n 3 = Suspender Cliente");
+    printf("\n 3 = Eliminar Cliente");
     printf("\n ==========================================");
     printf("\n Ingrese la opcion a elegir: ");
     scanf("%d",&i);

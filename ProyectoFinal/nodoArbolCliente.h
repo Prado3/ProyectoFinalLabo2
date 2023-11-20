@@ -27,4 +27,5 @@ nodoArbolCliente* buscarIdClienteArbol(nodoArbolCliente* arbol,int idCliente);
 nodoArbolCliente* cargarAdlCuentas(nodoArbolCliente* arbol, char nombreArchivo[]);
 nodoArbolCliente* cargarLista(stMovimiento mov, nodoArbolCliente* arbol);
 void buscarCuenta(nodoArbolCliente* arbol,stMovimiento mov,int flag);
+nodoArbolCliente* buscarDniClienteArbol(nodoArbolCliente* arbol,char DniCliente[]);
 #endif // NODOARBOLCLIENTE_H_INCLUDED

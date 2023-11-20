@@ -43,7 +43,6 @@ stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float im
     return movimiento;
 }
 
-
 void mostrarMovimiento(stMovimiento movimiento){
     printf("\n ==============================");
     printf("\n id:...................%d",movimiento.id);

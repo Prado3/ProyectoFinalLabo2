@@ -12,6 +12,7 @@ void ordenacionSeleccion (stCliente cliente[], int validos);
 void MuestraArreglo (stCliente clienteA[], int validos);
 void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol);
 void mostrarEstructuraCompleta(nodoArbolCliente* arbol);
+void mostrarUnCliente(nodoArbolCliente* arbol);
 
 int main()
 {
@@ -108,12 +109,15 @@ void MuestraArreglo (stCliente clienteA[], int validos){
 
 void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol){
     stMovimiento mov;
+    int total=0;
     FILE* archi = fopen(nombreArchi,"rb");
     if(archi){
         while(fread(&mov,sizeof(stMovimiento),1,archi)>0){
             arbol = cargarLista(mov,arbol);
+            total = 1 + total;
         }
     }
+    printf("\n %d",total);
 }
 
 void mostrarEstructuraCompleta(nodoArbolCliente* arbol){
@@ -121,12 +125,34 @@ void mostrarEstructuraCompleta(nodoArbolCliente* arbol){
         mostrarCliente(arbol->dato);
         for(int i=0;i<3;i++){
             mostrarCuenta(arbol->arregloCuenta[i].dato);
-            for(int j=0;j<10;j++){
-                mostrarMovimiento(arbol->arregloCuenta[i].nodoLista->dato);
-            }
+            mostrarLista(arbol->arregloCuenta[i].nodoLista);
+
         }
         mostrarEstructuraCompleta(arbol->izq);
         mostrarEstructuraCompleta(arbol->der);
+    }
+}
+
+void suspenderCliente(char dni[], nodoArbolCliente* arbol){
+    nodoArbolCliente* aux = NULL;
+    aux=buscarDniClienteArbol(arbol,dni);
+    if(aux){
+        aux->dato.eliminado=-1;
+        for(int i =0;i<3;i++){
+            aux->arregloCuenta[i].dato.eliminado=-1;
+            suspenderLista(aux->arregloCuenta[i].nodoLista);
+        }
+        mostrarUnCliente(aux);
+    }else{
+        printf("\n No se encuentra el dni ingresado");
+    }
+}
+
+void mostrarUnCliente(nodoArbolCliente* arbol){
+    mostrarCliente(arbol->dato);
+    for(int i=0;i<3;i++){
+        mostrarCuenta(arbol->arregloCuenta[1].dato);
+        mostrarLista(arbol->arregloCuenta[1].nodoLista);
     }
 }
 

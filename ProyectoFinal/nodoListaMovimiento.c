@@ -35,3 +35,17 @@ nodoListaMovimiento* buscarUltimo(nodoListaMovimiento* lista){
     }
     return aux;
 }
+
+void mostrarLista(nodoListaMovimiento* lista){
+    while(lista){
+        mostrarMovimiento(lista->dato);
+        lista = lista->sig;
+    }
+}
+
+void suspenderLista(nodoListaMovimiento* lista){
+    while(lista){
+        lista->dato.eliminado=-1;
+        lista = lista->sig;
+    }
+}

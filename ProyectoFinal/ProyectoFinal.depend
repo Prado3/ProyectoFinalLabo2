@@ -16,7 +16,7 @@
 1700346292 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.c
 	"cuenta.h"
 
-1699480011 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
+1700435238 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
 	"cliente.h"
 	"cuenta.h"
 	"movimiento.h"
@@ -24,20 +24,20 @@
 	<stdio.h>
 	<stdlib.h>
 
-1699394960 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
+1700430264 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
 	"movimiento.h"
 	"cuenta.h"
 
-1700344910 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
+1700438357 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
 	"nodoArbolCliente.h"
 	"math.h"
 	"cliente.h"
 	"celdaCuentas.h"
 
-1699401077 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.c
+1700438598 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.c
 	"nodoListaMovimiento.h"
 
-1700346292 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
+1700432721 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
 	"cliente.h"
 	"nodoArbolCliente.h"
 	<stdio.h>
@@ -54,13 +54,13 @@
 	"cuenta.h"
 	"movimiento.h"
 
-1700346292 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.h
+1700434816 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.h
 	"cliente.h"
 	"celdaCuentas.h"
 
 1699394699 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\celdacuentas.h
 	"nodoListaMovimiento.h"
 
-1699401077 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.h
+1700432536 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.h
 	"movimiento.h"
 
