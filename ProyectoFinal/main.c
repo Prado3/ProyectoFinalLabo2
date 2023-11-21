@@ -123,10 +123,8 @@ void cargarLista2adl(char nombreArchi[],nodoArbolCliente* arbol){
     if(archi){
         while(fread(&mov,sizeof(stMovimiento),1,archi)>0){
             arbol = cargarLista(mov,arbol);
-            total = 1 + total;
         }
     }
-    printf("\n %d",total);
 }
 
 void mostrarEstructuraCompleta(nodoArbolCliente* arbol){
@@ -153,7 +151,7 @@ void suspenderCliente(char dni[], nodoArbolCliente* arbol){
         }
         mostrarUnCliente(aux);
     }else{
-        printf("\n No se encuentra el dni ingresado");
+        printf("\n No se encuentra el dni ingresado.");
     }
 }
 
@@ -166,46 +164,30 @@ void mostrarUnCliente(nodoArbolCliente* arbol){
 }
 
 void muestraCuentaCliente (nodoArbolCliente * arbol, char DniCliente[]){
-int cuenta=0;
-stMovimiento movimiento [DIM];
-int validos=0;
-int dimension=DIM;
-nodoArbolCliente*aux=buscarDniClienteArbol(arbol,DniCliente);
-mostrarCliente(aux->dato);
-if (aux==NULL){
-    printf("\n El DNI ingresado no se encuentra en la base de datos");
-}
-else{
-    printf("\n Ingrese que cuenta desea visualizar, 1 Caja de ahorro, 2 Cuenta Corriente, 3 Cuenta en dolares: ");
-    scanf("%d",&cuenta);
-    if (cuenta==1){
-    mostrarCuenta(aux->arregloCuenta[0].dato);
-    validos=lista2ArregloOrdenado (movimiento, aux->arregloCuenta[0].nodoLista,validos, dimension);
-    ordenacionSeleccionFecha (movimiento,validos);
-    MuestraArregloOrdenado (movimiento, validos);
-
-
-
+    int cuenta=0;
+    stMovimiento movimiento [DIM];
+    int validos=0;
+    int dimension=DIM;
+    nodoArbolCliente*aux=buscarDniClienteArbol(arbol,DniCliente);
+    if (aux==NULL){
+        printf("\n El DNI ingresado no se encuentra en la base de datos");
+    }else{
+        mostrarCliente(aux->dato);
+        printf("\n Ingrese que cuenta desea visualizar, 1 Caja de ahorro, 2 Cuenta Corriente, 3 Cuenta en dolares: ");
+        scanf("%d",&cuenta);
+        for(int i=0;i<3;i++){
+            if (cuenta==aux->arregloCuenta[i].dato.tipoCuenta){
+                mostrarCuenta(aux->arregloCuenta[i].dato);
+                validos=lista2ArregloOrdenado (movimiento, aux->arregloCuenta[i].nodoLista,validos, dimension);
+                ordenacionSeleccionFecha (movimiento,validos);
+                MuestraArregloOrdenado (movimiento, validos);
+            }
+        }
     }
-    else if (cuenta==2){
-    mostrarCuenta(aux->arregloCuenta[1].dato);
-    validos=lista2ArregloOrdenado (movimiento, aux->arregloCuenta[1].nodoLista,validos, dimension);
-    ordenacionSeleccionFecha (movimiento,validos);
-    MuestraArregloOrdenado (movimiento, validos);
-
-    }
-    else if (cuenta==3){
-    mostrarCuenta(aux->arregloCuenta[2].dato);
-    validos=lista2ArregloOrdenado (movimiento, aux->arregloCuenta[2].nodoLista,validos, dimension);
-    ordenacionSeleccionFecha (movimiento,validos);
-    MuestraArregloOrdenado (movimiento, validos);
-
-    }
-
 }
 
 
-}
+
 int posicionMenorFecha (stMovimiento movimiento[], int pos, int validos)
 {
     stMovimiento menor = movimiento[pos];

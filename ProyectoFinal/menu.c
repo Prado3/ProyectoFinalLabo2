@@ -39,7 +39,6 @@ void menuGeneral(){
             nroClienteMayor = MayorNroCliente(ARCHI_CLIENTE);
             idMayor = MayorID(ARCHI_MOVIMIENTOS);
             cargarLista2adl(ARCHI_MOVIMIENTOS,arbol);
-            //mostrarEstructuraCompleta(arbol);
             printf("\n Ingrese ESC para volver al menu..");
             opSalir=getch();
             break;
@@ -58,34 +57,34 @@ void menuGeneral(){
             printf("\n Ingrese el dni a suspender: ");
             gets(dni);
             suspenderCliente(dni,arbol);
-            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para suspender otro cliente...");
+            printf("\n Ingrese ESC para volver al menu...");
             opSalir=getch();
             break;
         case 4:
             fflush(stdin);
             printf("\n Ingrese el dni a ELIMINAR: ");
             gets(dni);
-            arbol = deleteNode(arbol,dni);
+            arbol = eliminarNodo(arbol,dni);
             aux = buscarDniClienteArbol(arbol,dni);
             if(aux){
                 mostrarCliente(aux->dato);
             }else{
                 printf("\n El cliente se ELIMINO con exito!");
             }
-            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para suspender otro cliente...");
+            printf("\n Ingrese ESC para volver al menu...");
             opSalir=getch();
             break;
         case 5:
             fflush(stdin);
-            printf("\n Ingrese el dni a mostrar");
+            printf("\n Ingrese el dni a mostrar: ");
             gets(dni);
             muestraCuentaCliente(arbol,dni);
-            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para suspender otro cliente...");
+            printf("\n Ingrese ESC para volver al menu...");
             opSalir=getch();
             break;
         case 6:
             mostrarEstructuraCompleta(arbol);
-            printf("\n Ingrese ESC para volver al menu, o cualquier tecla para suspender otro cliente...");
+            printf("\n Ingrese ESC para volver al menu...");
             opSalir=getch();
             break;
         case 7:
@@ -103,7 +102,7 @@ void menuGeneral(){
                     opSalir = getch();
                 }
             }while(flagCarga == 0 && opSalir != ESC);
-            printf("\n Ingrese ESC para volver al menu.");///Modificar para que tenga sentido el print anterior.
+            printf("\n Ingrese ESC para volver al menu...");
             opSalir=getch();
             break;
         case 8:
@@ -115,16 +114,16 @@ void menuGeneral(){
             aux = buscarDniClienteArbol(arbol, dni);
             if(aux != NULL){
                 if(aux->dato.eliminado != 0){
-                printf("\nEl cliente se encuentra suspendido.");
+                printf("\n El cliente se encuentra suspendido.");
                 }
             else{
-                printf("\nCliente Seleccionado: \n");
+                printf("\n Cliente Seleccionado: \n");
                 mostrarCliente(aux->dato);
                 do{
-                    printf("\nQué tipo de cuenta desea crear? \nIngrese 1 para Caja de Ahorro en AR$\nIngrese 2 para Cuenta Corriente en AR$\nIngrese 3 para Caja de Ahorro en US$");
+                    printf("\nQue tipo de cuenta desea crear? \nIngrese 1 para Caja de Ahorro en AR$\nIngrese 2 para Cuenta Corriente en AR$\nIngrese 3 para Caja de Ahorro en US$\n");
                     scanf("%d", &tipocuenta);
                     if(buscarTipoCuenta(aux->arregloCuenta, tipocuenta, aux->v) == -1){
-                        aux->v = agregarCelda(aux->arregloCuenta, aux->v, cargarCuenta(tipocuenta, aux->dato.id, idMayor, nroCuentaMayor));
+                        aux->v = agregarCelda(aux->arregloCuenta, aux->v, cargarCuenta(tipocuenta, aux->dato.nroCliente, idMayor, nroCuentaMayor));
                         flagCarga = 1;
                     }else{
                         printf("\nEl cliente ya tiene una cuenta creada de este tipo. Presione cualquier tecla para reingresar el DNI, o ESC para salir.");
@@ -137,7 +136,7 @@ void menuGeneral(){
             opSalir = getch();
             }
             }while(aux == NULL && opcion != ESC);
-            printf("\n Ingrese ESC para volver al menu.");
+            printf("\n Ingrese ESC para volver al menu...");
             opSalir=getch();
             break;
         case 9:
@@ -148,14 +147,14 @@ void menuGeneral(){
                 aux = buscarDniClienteArbol(arbol, dni);
                 if(aux != NULL){
                     if(aux->dato.eliminado != 0){
-                        printf("\nEl cliente se encuentra suspendido.");
-                        opSalir = ESC;
+                        printf("\nEl cliente se encuentra suspendido. Ingrese ESC para salir o ENTER para ingresar otro dni...");
+                        opSalir = getch();
                     }
                     else{
                         printf("\nCliente Seleccionado: \n");
                         mostrarCliente(aux->dato);
                         do{
-                            printf("\n¿En qué cuenta desea realizar el movimiento? \n1 - Caja de Ahorro en AR$\n2 - Cuenta Corriente en AR$\n3 - Caja de Ahorro en US$");
+                            printf("\n¿En que cuenta desea realizar el movimiento? \n1 - Caja de Ahorro en AR$\n2 - Cuenta Corriente en AR$\n3 - Caja de Ahorro en US$");
                             scanf("%d", &tipocuenta);
                             posMovimiento = buscarTipoCuenta(aux->arregloCuenta, tipocuenta, aux->v);
                             if(posMovimiento == -1){
@@ -190,6 +189,7 @@ void menuGeneral(){
             }while(opSalir!=ESC);
             break;
     }
+        system("cls");
         printf("\n Ingrese ESC para salir del programa");
         printf("\n Ingrese ENTER para volver al menu");
         opSalir=getch();

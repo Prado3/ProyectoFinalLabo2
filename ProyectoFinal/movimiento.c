@@ -37,11 +37,11 @@ stMovimiento cargarUnMovimiento(int ultimoId, int nroCuenta){
 
     movimiento.dia=fecha->tm_mday;
 
-    printf("\nQué operación desea realizar?: \n1 - Cobro Haberes\n2 - Regalo\n3 - Venta Celular\n4 - Venta Anillo\n5 - Venta Ropa\n6 - Venta Auto\n7 - Venta App");
+    printf("\nQue operacion desea realizar?: \n1 - Cobro Haberes\n2 - Regalo\n3 - Venta Celular\n4 - Venta Anillo\n5 - Venta Ropa\n6 - Venta Auto\n7 - Venta App\n");
     scanf("%d", &opciondetalle);
     strcpy(movimiento.detalle, detalle[opciondetalle - 1]);
 
-    printf("\n¿Qué monto desea transferir?: ");
+    printf("\nQuée monto desea transferir?: ");
     scanf("%d", &monto);
     movimiento.importe=monto;
 
@@ -53,7 +53,7 @@ stMovimiento cargarUnMovimiento(int ultimoId, int nroCuenta){
 void mostrarMovimiento(stMovimiento movimiento){
     printf("\n ==============================");
     printf("\n id:...................%d",movimiento.id);
-    printf("\n idCuenta:.............%d",movimiento.nroCuenta);
+    printf("\n nroCuenta:.............%d",movimiento.nroCuenta);
     printf("\n Anio:.................%d",movimiento.anio);
     printf("\n Mes:..................%d",movimiento.mes);
     printf("\n Dia:..................%d",movimiento.dia);

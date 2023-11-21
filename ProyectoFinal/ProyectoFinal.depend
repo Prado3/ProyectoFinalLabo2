@@ -13,10 +13,10 @@
 	<stdio.h>
 	<stdlib.h>
 
-1700517773 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.c
+1700578442 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\cuenta.c
 	"cuenta.h"
 
-1700522272 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
+1700578688 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\main.c
 	"cliente.h"
 	"cuenta.h"
 	"movimiento.h"
@@ -24,11 +24,11 @@
 	<stdio.h>
 	<stdlib.h>
 
-1700523431 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
+1700578442 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\movimiento.c
 	"movimiento.h"
 	"cuenta.h"
 
-1700517773 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
+1700578167 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.c
 	"nodoArbolCliente.h"
 	"math.h"
 	"cliente.h"
@@ -37,7 +37,7 @@
 1700438598 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodolistamovimiento.c
 	"nodoListaMovimiento.h"
 
-1700525278 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
+1700578442 source:c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\menu.c
 	"cliente.h"
 	"nodoArbolCliente.h"
 	<stdio.h>
@@ -54,7 +54,7 @@
 	"cuenta.h"
 	"movimiento.h"
 
-1700517701 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.h
+1700577142 c:\users\usuario\documents\plantillas personalizadas de office\lucas\proyectofinal\nodoarbolcliente.h
 	"cliente.h"
 	"celdaCuentas.h"
 

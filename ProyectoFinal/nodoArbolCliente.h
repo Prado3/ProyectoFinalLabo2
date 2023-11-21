@@ -30,7 +30,7 @@ nodoArbolCliente* cargarLista(stMovimiento mov, nodoArbolCliente* arbol);
 void buscarCuenta(nodoArbolCliente* arbol,stMovimiento mov,int flag);
 nodoArbolCliente* buscarDniClienteArbol(nodoArbolCliente* arbol,char DniCliente[]);
 nodoArbolCliente* hijoNoNullDelNodo(nodoArbolCliente* arbol);
-nodoArbolCliente* deleteNode(nodoArbolCliente* arbol, char dni[]);
+nodoArbolCliente* eliminarNodo(nodoArbolCliente* arbol, char dni[]);
 stCliente cargarCliente(nodoArbolCliente* arbol, char DNI[10], int ultimoID, int ultimoNroCliente);
 int MayorID(char Archivo[]);
 int MayorNroCliente(char Archivo[]);

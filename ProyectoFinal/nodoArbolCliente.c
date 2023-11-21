@@ -140,7 +140,7 @@ nodoArbolCliente* buscarDniClienteArbol(nodoArbolCliente* arbol,char DniCliente[
     return rta;
 }
 
-nodoArbolCliente* BuscaMayorID (nodoArbolCliente* arbol){///Está mal, corregir
+nodoArbolCliente* BuscaMayorID (nodoArbolCliente* arbol){
     nodoArbolCliente* mayor = NULL;
     if(arbol){
         mayor = BuscaMayorID(arbol->izq);
@@ -156,16 +156,16 @@ nodoArbolCliente* BuscaMayorID (nodoArbolCliente* arbol){///Está mal, corregir
     return mayor;
 }
 
-nodoArbolCliente* deleteNode(nodoArbolCliente* arbol, char dni[]){
+nodoArbolCliente* eliminarNodo(nodoArbolCliente* arbol, char dni[]){
     // Función principal para eliminar un nodo del árbol
     if (arbol == NULL) {
         return arbol;
     }
 
     if (atoi(dni) < atoi(arbol->dato.dni)) {
-        arbol->izq = deleteNode(arbol->izq, dni);
+        arbol->izq = eliminarNodo(arbol->izq, dni);
     } else if (atoi(dni) > atoi(arbol->dato.dni)) {
-        arbol->der = deleteNode(arbol->der, dni);
+        arbol->der = eliminarNodo(arbol->der, dni);
     } else {
         // Nodo con el valor a eliminar encontrado
 
@@ -187,7 +187,7 @@ nodoArbolCliente* deleteNode(nodoArbolCliente* arbol, char dni[]){
         }
 
         strcpy(arbol->dato.dni,min->dato.dni);
-        arbol->der = deleteNode(arbol->der, min->dato.dni);
+        arbol->der = eliminarNodo(arbol->der, min->dato.dni);
     }
 
     return arbol;
@@ -241,7 +241,7 @@ int MayorNroCliente(char Archivo[]){
         fseek(archi, -1*sizeof(stCliente), SEEK_END);
         fread(&generico, sizeof(stCliente), 1, archi);
     }
-    return generico.id;
+    return generico.nroCliente;
 }
 
 

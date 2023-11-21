@@ -40,7 +40,7 @@ stCuenta cargarCuenta(int tipocuenta, int IDCliente, int ultimoID, int ultimoNro
 void mostrarCuenta(stCuenta cuenta){
     printf("\n ====================");
     printf("\n id:............ %d",cuenta.id);
-    printf("\n idCliente:...... %d",cuenta.idCliente);
+    printf("\n nroCliente:...... %d",cuenta.idCliente);
     printf("\n NroCuenta:..... %d",cuenta.nroCuenta);
     printf("\n Tipo de Cuenta: %d",cuenta.tipoCuenta);
     printf("\n Costo mensual:. %.2f",cuenta.costoMensual);
@@ -76,7 +76,7 @@ int MayorNroCuenta(char Archivo[]){
         fseek(archi, -1*sizeof(stCuenta), SEEK_END);
         fread(&generico, sizeof(stCuenta), 1, archi);
     }
-    return generico.id;
+    return generico.nroCuenta;
 }
 
 int nroCliente(){
