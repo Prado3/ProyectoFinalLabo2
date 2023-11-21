@@ -34,4 +34,6 @@ nodoArbolCliente* eliminarNodo(nodoArbolCliente* arbol, char dni[]);
 stCliente cargarCliente(nodoArbolCliente* arbol, char DNI[10], int ultimoID, int ultimoNroCliente);
 int MayorID(char Archivo[]);
 int MayorNroCliente(char Archivo[]);
+void recorrerArbol(nodoArbolCliente* arbol, FILE* archiC,FILE* archiCuen,FILE* archiM);
+void estructura2Archivo(nodoArbolCliente* arbol, char archiCliente[],char archiCuenta[], char archiMov[]);
 #endif // NODOARBOLCLIENTE_H_INCLUDED

@@ -244,4 +244,42 @@ int MayorNroCliente(char Archivo[]){
     return generico.nroCliente;
 }
 
+void estructura2Archivo(nodoArbolCliente* arbol, char archiCliente[],char archiCuenta[], char archiMov[]){
+    FILE* archiC = fopen(archiCliente,"w+b");
+    FILE* archiCuen = fopen(archiCuenta,"w+b");
+    FILE* archiM = fopen(archiMov,"w+b");
+    if(archiC){
+        if(archiCuen){
+            if(archiM){
+                recorrerArbol(arbol,archiC,archiCuen,archiM);
+                fclose(archiM);
+            }
+            fclose(archiCuen);
+        }
+        fclose(archiC);
+    }
+}
+
+void recorrerArbol(nodoArbolCliente* arbol, FILE* archiC,FILE* archiCuen,FILE* archiM){
+    stMovimiento mov;
+    stCuenta cuenta;
+    stCliente cliente;
+    nodoListaMovimiento* lista = inicLista();
+    if(arbol){
+        cliente=arbol->dato;
+        fwrite(&cliente,sizeof(stCliente),1,archiC);
+        for(int i=0;i<arbol->v;i++){
+            cuenta=arbol->arregloCuenta[i].dato;
+            fwrite(&cuenta,sizeof(stCuenta),1,archiCuen);
+            lista = arbol->arregloCuenta[i].nodoLista;
+                while(lista){
+                    mov=lista->dato;
+                    fwrite(&mov,sizeof(stMovimiento),1,archiM);
+                    lista = lista->sig;
+                }
+        }
+        recorrerArbol(arbol->izq,archiC,archiCuen,archiM);
+        recorrerArbol(arbol->der,archiC,archiCuen,archiM);
+    }
+}
 

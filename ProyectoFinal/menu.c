@@ -19,6 +19,7 @@ void menuGeneral(){
     int nroCuentaMayor;
     int tipocuenta;
     int posMovimiento;
+    int cant=0;
 
     do{
         system("cls");
@@ -188,6 +189,14 @@ void menuGeneral(){
             opSalir=getch();
             }while(opSalir!=ESC);
             break;
+        case 11:
+            estructura2Archivo(arbol,ARCHI_CLIENTE,ARCHI_CUENTA,ARCHI_MOVIMIENTOS);
+            cant = cantidadClientesArchivo(ARCHI_CUENTA);
+            printf("\n %d",cant);
+            printf("\n Carga realizada con exito...");
+            printf("\n Ingrese ESC para volver al menu...");
+            opSalir=getch();
+            break;
     }
         system("cls");
         printf("\n Ingrese ESC para salir del programa");
@@ -210,6 +219,7 @@ int mostrarOpciones(){
     printf("\n 8 = Cargar Cuentas a un cliente");
     printf("\n 9 = Cargar Movimientos a una cuenta");
     printf("\n 10 = Modificar dato de cliente");
+    printf("\n 11 = Pasar datos de estructura al archivo");
     printf("\n ==========================================");
     printf("\n Ingrese la opcion a elegir: ");
     scanf("%d",&i);

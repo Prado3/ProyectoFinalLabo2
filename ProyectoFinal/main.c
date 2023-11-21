@@ -22,6 +22,7 @@ void ordenacionSeleccionFecha (stMovimiento movimiento[], int validos);
 int posicionMenorFecha (stMovimiento movimiento[], int pos, int validos);
 void muestraCuentaCliente (nodoArbolCliente * arbol, char DniCliente[]);
 void modificarCliente(nodoArbolCliente* arbol, char dni[]);
+int cantidadClientesArchivo(char archivo[]);
 
 int main()
 {
@@ -292,6 +293,17 @@ void modificarCliente(nodoArbolCliente* arbol, char dni[]){
     }while(opSalir!=ESC);
     printf("\n El cliente fue modificado con exito..");
     mostrarCliente(aux->dato);
+}
+
+int cantidadClientesArchivo(char archivo[]){
+    int cantidadClientes;
+    FILE* archi = fopen(archivo, "rb");
+    if(archi){
+        fseek(archi, 0, SEEK_END);
+        cantidadClientes = ftell(archi) / sizeof(stCliente);
+        fclose(archi);
+    }
+    return cantidadClientes;
 }
 
 
