@@ -22,6 +22,7 @@ nodoArbolCliente* crearNodoArbol(stCliente dato){
     nuevo->dato = dato;
     nuevo->izq = NULL;
     nuevo->der = NULL;
+    nuevo->padre = NULL;
     return nuevo;
 }
 
@@ -138,4 +139,109 @@ nodoArbolCliente* buscarDniClienteArbol(nodoArbolCliente* arbol,char DniCliente[
     }
     return rta;
 }
+
+nodoArbolCliente* BuscaMayorID (nodoArbolCliente* arbol){///Está mal, corregir
+    nodoArbolCliente* mayor = NULL;
+    if(arbol){
+        mayor = BuscaMayorID(arbol->izq);
+        mayor = BuscaMayorID(arbol->der);
+        if(mayor == NULL){
+            mayor = arbol;
+        }
+        if(mayor->dato.id > arbol->dato.id){
+            mayor = arbol;
+
+        }
+    }
+    return mayor;
+}
+
+nodoArbolCliente* deleteNode(nodoArbolCliente* arbol, char dni[]){
+    // Función principal para eliminar un nodo del árbol
+    if (arbol == NULL) {
+        return arbol;
+    }
+
+    if (atoi(dni) < atoi(arbol->dato.dni)) {
+        arbol->izq = deleteNode(arbol->izq, dni);
+    } else if (atoi(dni) > atoi(arbol->dato.dni)) {
+        arbol->der = deleteNode(arbol->der, dni);
+    } else {
+        // Nodo con el valor a eliminar encontrado
+
+        // Caso 1: Nodo con un solo hijo o sin hijos
+        if (arbol->izq == NULL) {
+            nodoArbolCliente* aux = arbol->der;
+            free(arbol);
+            return aux;
+        } else if (arbol->der == NULL) {
+            nodoArbolCliente* aux = arbol->izq;
+            free(arbol);
+            return aux;
+        }
+
+        // Caso 2: Nodo con dos hijos
+        nodoArbolCliente* min = arbol->der;
+        while (min->izq != NULL) {
+            min = min->izq;
+        }
+
+        strcpy(arbol->dato.dni,min->dato.dni);
+        arbol->der = deleteNode(arbol->der, min->dato.dni);
+    }
+
+    return arbol;
+}
+
+stCliente cargarCliente(nodoArbolCliente* arbol, char DNI[10], int ultimoID, int ultimoNroCliente){
+    stCliente cliente;
+    strcpy(cliente.dni, DNI);
+    cliente.id = ultimoID + id();
+    cliente.nroCliente = ultimoNroCliente + nroCliente();
+
+    printf("\n Ingrese su nombre: ");
+    fflush(stdin);
+    gets(cliente.nombre);
+
+    printf("\n Ingrese su apellido: ");
+    fflush(stdin);
+    gets(cliente.apellido);
+
+    printf("\n Ingrese su email: ");
+    fflush(stdin);
+    gets(cliente.email);
+
+    printf("\n Ingrese su domicilio: ");
+    fflush(stdin);
+    gets(cliente.domicilio);
+
+    printf("\n Ingrese su telefono: ");
+    fflush(stdin);
+    gets(cliente.telefono);
+
+    cliente.eliminado=0;
+
+    return cliente;
+}
+
+int MayorID(char Archivo[]){
+    stMovimiento generico;
+    FILE* archi = fopen(Archivo, "rb");
+    if(archi){
+        fseek(archi, -1*sizeof(stMovimiento), SEEK_END);
+        fread(&generico, sizeof(stMovimiento), 1, archi);
+    }
+    return generico.id;
+}
+
+int MayorNroCliente(char Archivo[]){
+    stCliente generico;
+    FILE* archi = fopen(Archivo, "rb");
+    if(archi){
+        fseek(archi, -1*sizeof(stCliente), SEEK_END);
+        fread(&generico, sizeof(stCliente), 1, archi);
+    }
+    return generico.id;
+}
+
 

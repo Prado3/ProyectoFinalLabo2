@@ -52,38 +52,7 @@ void mostrarCliente(stCliente cliente){
     printf("\n==================================");
 }
 
-stCliente cargarCliente(){
-    stCliente cliente;
-
-    //cliente.id=idautoincremental();
-
-    printf("\n Ingrese su nombre: ");
-    fflush(stdin);
-    gets(cliente.nombre);
-
-    printf("\n Ingrese su apellido: ");
-    fflush(stdin);
-    gets(cliente.apellido);
-
-    printf("\n Ingrese su dni: ");
-    fflush(stdin);
-    gets(cliente.dni);
-
-    printf("\n Ingrese su email: ");
-    fflush(stdin);
-    gets(cliente.email);
-
-    printf("\n Ingrese su domicilio: ");
-    fflush(stdin);
-    gets(cliente.domicilio);
-
-    printf("\n Ingrese su telefono: ");
-    fflush(stdin);
-    gets(cliente.telefono);
-
-    cliente.eliminado=0;
-
-//    cliente.nroCliente=nroClienteA();
-
-    return cliente;
+int id (){
+    static int i = 1;
+    return i++;
 }

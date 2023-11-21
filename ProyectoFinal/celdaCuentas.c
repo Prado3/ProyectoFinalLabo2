@@ -9,3 +9,15 @@ int agregarCelda(stCeldaCuentas adl[], int v, stCuenta cuenta){
     adl[v].nodoLista = inicLista();
     return v+1;
 }
+
+int buscarTipoCuenta(stCeldaCuentas adl[], int tipocuenta, int v){
+    int pos = -1;
+    int i = 0;
+    while(i < v && pos == -1){
+        if(adl[i].dato.tipoCuenta == tipocuenta){
+            pos = i;
+        }
+        i++;
+    }
+    return pos;
+}

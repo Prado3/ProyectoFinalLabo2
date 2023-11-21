@@ -14,7 +14,10 @@ typedef struct {
 stCuenta cargarCuentaRandom(stCliente cliente, int i,int cuentaId,int nroCuenta);
 int nroCuentaA();
 int nroCuentaB();
-stCuenta cargarCuenta(int id, int nroCliente, int opcion);
 void mostrarCuenta(stCuenta cuenta);
+stCuenta cargarCuenta(int tipocuenta, int IDCliente, int ultimoID, int ultimoNroCuenta);
+int costocuenta (int tipocuenta);
+int nroCuenta();
+int MayorNroCuenta(char Archivo[]);
 
 #endif // CUENTA_H_INCLUDED

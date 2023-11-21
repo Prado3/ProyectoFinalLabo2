@@ -10,5 +10,5 @@ typedef struct{
 
 
 int agregarCelda(stCeldaCuentas adl[], int v, stCuenta cuenta);
-
+int buscarTipoCuenta(stCeldaCuentas adl[], int tipocuenta, int v);
 #endif // CELDACUENTAS_H_INCLUDED

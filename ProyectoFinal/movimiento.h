@@ -14,7 +14,7 @@ typedef struct{
 }stMovimiento;
 
 stMovimiento cargarMovimientoRandom(stCuenta cuenta,int movId);
-stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float importe);
+stMovimiento cargarUnMovimiento(int ultimoId, int nroCuenta);
 void mostrarMovimiento(stMovimiento movimiento);
 
 #endif // MOVIMIENTO_H_INCLUDED

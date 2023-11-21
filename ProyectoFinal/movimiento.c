@@ -17,16 +17,19 @@ stMovimiento cargarMovimientoRandom(stCuenta cuenta,int movId){
     return movimiento;
 }
 
-stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float importe){
+stMovimiento cargarUnMovimiento(int ultimoId, int nroCuenta){
     stMovimiento movimiento;
+    char detalle[][20]={"cobro haberes","regalo","venta celular","venta anillo","venta ropa","venta auto","venta app"};
+    int opciondetalle;
+    int monto;
     time_t t;
     time(&t);
     struct tm *fecha=localtime(&t);
 
 
-    movimiento.id=id;
+    movimiento.id= ultimoId + id();
 
-    movimiento.nroCuenta=idCuenta;
+    movimiento.nroCuenta= nroCuenta;
 
     movimiento.anio=fecha->tm_year+1900;
 
@@ -34,9 +37,13 @@ stMovimiento cargarUnMovimiento(int id, int idCuenta, char detalle[100],float im
 
     movimiento.dia=fecha->tm_mday;
 
-    strcpy(movimiento.detalle,detalle);
+    printf("\nQué operación desea realizar?: \n1 - Cobro Haberes\n2 - Regalo\n3 - Venta Celular\n4 - Venta Anillo\n5 - Venta Ropa\n6 - Venta Auto\n7 - Venta App");
+    scanf("%d", &opciondetalle);
+    strcpy(movimiento.detalle, detalle[opciondetalle - 1]);
 
-    movimiento.importe=importe;
+    printf("\n¿Qué monto desea transferir?: ");
+    scanf("%d", &monto);
+    movimiento.importe=monto;
 
     movimiento.eliminado=0;
 
